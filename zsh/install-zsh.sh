@@ -102,12 +102,3 @@ fi
 
 # install
 make -j$JOBS && make install
-
-# change zsh to default shell
-# if [[ -e $HOME/.bash_profile ]]; then
-#     echo "export SHELL=\$(which zsh)" >> "$HOME/.bash_profile"
-#     echo 'exec "$SHELL" -l' >> "$HOME/.bash_profile"
-# elif [[ -e $HOME/.profile ]]; then
-#     echo "export SHELL=\$(which zsh)" >> "$HOME/.profile"
-#     echo 'exec "$SHELL" -l' >> "$HOME/.profile"
-# fi
