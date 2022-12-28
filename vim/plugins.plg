@@ -1,0 +1,29 @@
+# file explorer
+preservim/nerdtree.git
+
+# comment/uncomment code
+tpope/vim-commentary.git
+
+# status line
+vim-airline/vim-airline.git
+vim-airline/vim-airline-themes.git
+
+# surrounding pairs
+tpope/vim-surround.git
+
+# pair mappings
+tpope/vim-unimpaired.git
+
+# vim fugitive
+tpope/vim-fugitive.git
+
+# vim-cpp-modern
+bfrg/vim-cpp-modern.git
+
+# fuzzy search
+junegunn/fzf.git
+junegunn/fzf.vim.git
+
+# suggestion/completion (require nodejs installed)
+# uncomment following line to install
+# neoclide/coc.nvim.git --branch release
