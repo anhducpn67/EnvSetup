@@ -70,14 +70,14 @@ parse_args() {
     done
 }
 
-parse_args $@
+parse_args "$@"
 
 if [[ ! -d $DEST ]]; then
     mkdir -p "$DEST"
 fi
 
 if [[ ! -d $DEST/vim ]]; then
-    cd $DEST
+    cd "$DEST"
     git clone https://github.com/vim/vim.git
 else
     cd "$DEST/vim"
@@ -91,15 +91,15 @@ make uninstall && make clean && make distclean
 
 # install vim
 cd "$DEST/vim"
-./configure --prefix=$PREFIX \
+./configure --prefix="$PREFIX" \
     --with-features=huge --enable-multibyte \
     --enable-python3interp=yes \
-    --with-python3-command=$PYTHON3_COMMAND \
+    --with-python3-command="$PYTHON3_COMMAND" \
     --with-tlib=ncursesw \
     CFLAGS="-fPIC" \
     LDFLAGS="-L$NCURSESW/lib" \
     LD_LIBRARY_PATH="$NCURSESW/lib:$LD_LIBRARY_PATH"
-make -j$JOBS
+make -j"$JOBS"
 make install
 
 # symbolic link

@@ -12,6 +12,7 @@ NORMAL="\033[0m"
 # function to create backup file
 create_backup(){
     while true; do
+        # shellcheck disable=SC2162
         read -p "Do you want to create a backup [y/yes/Y/n/no/N]: " answer
         case $answer in
             "y" | "Y" | "yes")
