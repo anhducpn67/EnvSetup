@@ -49,14 +49,14 @@ parse_args() {
     done
 }
 
-parse_args $@
+parse_args "$@"
 
 # download ncurses and create install directory
 if [[ ! -d ncurses-$VERSION ]]; then
     if [[ ! -f ncurses-$VERSION.tar.gz ]]; then
-        wget https://ftp.gnu.org/pub/gnu/ncurses/ncurses-$VERSION.tar.gz
-        tar -xzvf ncurses-$VERSION.tar.gz
-        rm ncurses-$VERSION.tar.gz
+        wget "https://ftp.gnu.org/pub/gnu/ncurses/ncurses-$VERSION.tar.gz"
+        tar -xzvf "ncurses-$VERSION.tar.gz"
+        rm ncurses-"$VERSION".tar.gz
     fi
 fi
 
@@ -65,7 +65,7 @@ if [[ ! -d $PREFIX ]]; then
 fi
 
 # config
-cd ncurses-$VERSION
+cd ncurses-"$VERSION"
 
 # uninstall old version
 make uninstall && make clean && make distclean
@@ -83,4 +83,4 @@ fi
     CPPFLAGS="-I$NCURSES/include" LDFLAGS="-L$NCURSES/lib"
 
 # install
-make -j$JOBS && make install
+make -j"$JOBS" && make install

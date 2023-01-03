@@ -56,7 +56,7 @@ parse_args() {
     done
 }
 
-parse_args $@
+parse_args "$@"
 
 # zsh require ncurses, default searching for ncurses library in
 # $HOME/.local folder. If you have different ncurses library folder, export
@@ -101,4 +101,4 @@ fi
     LD_LIBRARY_PATH="$NCURSESW/lib:$LD_LIBRARY_PATH"
 
 # install
-make -j$JOBS && make install
+make -j"$JOBS" && make install
