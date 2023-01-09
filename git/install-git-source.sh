@@ -16,6 +16,8 @@ OPTION:
                     (default: /usr/local)
     --zlib          Path to zlib
                     (default: /usr/)
+    --curl          Path to curl directory
+                    (default: /usr/)
     -v, --version   Git version to install
                     (default: latest)
     -h, --help      Print usage message and exit
@@ -26,6 +28,7 @@ _EOF_
 PREFIX="/usr/local"
 DEST="$(pwd)"
 ZLIB="/usr/"
+CURLDIR="/usr/"
 NJOBS=1
 
 # parse command line arguments
@@ -47,6 +50,10 @@ parse_args(){
             "--zlib")
                 shift
                 ZLIB="$1"
+                ;;
+            "--curl")
+                shift
+                CURLDIR="$1"
                 ;;
             "-v" | "--version")
                 shift
@@ -92,7 +99,7 @@ fi
 cd "$DEST/git"
 
 if [[ -n $VERSION ]]; then
-    git checkout $VERSION
+    git checkout "$VERSION"
 fi
 
 # create configure file
@@ -103,8 +110,8 @@ fi
 ./configure --prefix="$PREFIX" \
             --with-zlib="$ZLIB" \
 	    --with-curl	\
-	    CURLDIR="$HOME/.local"
+	    CURLDIR="$CURLDIR"
 
 # make and install
 cd "$DEST/git"
-make -j $NJOBS && make install
+make -j "$NJOBS" && make install
