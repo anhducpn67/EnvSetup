@@ -7,4 +7,4 @@ Git using two lib: libcurl && zlib. So, to install git, we also have to install 
 2. Without sudo (eg. In server) \
 `./install-zlib-source.sh -p $HOME/.local` \
 `./install-curl-source.sh -p $HOME/.local` \
-`./install-git-source.sh -p $HOME/local --zlib $HOME/local --curl $HOME/.local`
+`./install-git-source.sh -p $HOME/.local --zlib $HOME/.local --curl $HOME/.local`
