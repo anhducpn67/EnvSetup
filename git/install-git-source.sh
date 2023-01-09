@@ -101,7 +101,9 @@ if [[ ! -x configure ]]; then
 fi
 
 ./configure --prefix="$PREFIX" \
-            --with-zlib="$ZLIB"
+            --with-zlib="$ZLIB" \
+	    --with-curl	\
+	    CURLDIR="$HOME/.local"
 
 # make and install
 cd "$DEST/git"

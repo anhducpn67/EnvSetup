@@ -76,6 +76,7 @@ else
     git pull origin master
 fi
 
+cd "$DEST/zlib"
 ./configure --prefix="$PREFIX"
 
 # make and install
