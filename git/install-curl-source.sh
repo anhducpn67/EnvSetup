@@ -74,6 +74,7 @@ fi
 # download source code of libcurl
 wget --no-check-certificate https://curl.se/download/curl-"$VERSION".tar.gz
 tar -xzvf curl-"$VERSION".tar.gz
+rm -rf curl-"$VERSION".tar.gz
 
 # configure
 cd "$DEST/curl-$VERSION"
